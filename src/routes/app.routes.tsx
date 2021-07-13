@@ -6,6 +6,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { Home } from '../screens/Home';
 import { RegisterLoginData } from '../screens/RegisterLoginData';
 import { Platform } from 'react-native';
+import { useTheme } from 'styled-components';
 
 const {
   Navigator,
@@ -13,14 +14,15 @@ const {
 } = createBottomTabNavigator();
 
 export function AppRoutes() {
+  const theme = useTheme();
   return (
     <Navigator
       tabBarOptions={{
-        activeTintColor: '#4E3975',
-        inactiveTintColor: '#9883BF',
+        activeTintColor: theme.colors.primary,
+        inactiveTintColor: theme.colors.primary_light,
         labelPosition: 'beside-icon',
         labelStyle: {
-          fontFamily: 'Poppins_500Medium',
+          fontFamily: theme.fonts.medium,
           fontSize: RFValue(14),
           marginLeft: RFValue(14)
         },
